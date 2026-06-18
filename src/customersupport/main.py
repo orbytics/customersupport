@@ -14,8 +14,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'customer_query': 'I bought a mobile and I dont like it. I want to return it. What is your return policy for this case?',     
     }
 
     try:
@@ -29,7 +28,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
+        "customer_query": "I bought an item and I dont like it. I want to return it. What is your return policy for this case?",
         'current_year': str(datetime.now().year)
     }
     try:
@@ -53,7 +52,7 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs",
+        "customer_query": "I bought an item and I dont like it. I want to return it. What is your return policy for this case?",
         "current_year": str(datetime.now().year)
     }
 
