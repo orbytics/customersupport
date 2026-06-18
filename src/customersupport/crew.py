@@ -7,34 +7,20 @@ from crewai.agents.agent_builder.base_agent import BaseAgent
 class Customersupport():
     """Customersupport crew"""
 
-    agents: list[BaseAgent]
-    tasks: list[Task]
+    agents_config = "config/agents.yaml"
+    tasks_config  = "config/tasks.yaml"
 
     @agent
-    def researcher(self) -> Agent:
+    def customer_support_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
-            verbose=True
-        )
-
-    @agent
-    def reporting_analyst(self) -> Agent:
-        return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
+            config=self.agents_config['customer_support_agent'], # type: ignore[index]
             verbose=True
         )
 
     @task
-    def research_task(self) -> Task:
+    def support_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
-        )
-
-    @task
-    def reporting_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
-            output_file='report.md'
+            config=self.tasks_config['support_task'], # type: ignore[index]
         )
 
     @crew

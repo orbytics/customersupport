@@ -1,17 +1,48 @@
-research_task:
+support_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Respond to the following customer inquiry: {customer_query}
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A detailed explanation of the return policy.
+  agent: customer_support_agent
 
-reporting_task:
+
+return_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Respond to the following customer inquiry: "{customer_query}"
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A detailed explanation of the return policy.
+  agent: customer_support_agent
+
+
+shipping_task:
+  description: >
+    Using the return policy details, provide the shipping policy for handling returns.
+  expected_output: >
+    A structured shipping policy with fields for shipping time, cost, and tracking information.
+  agent: customer_support_agent
+
+
+complaint_task:
+  description: >
+    Using the shipping policy and return policy details, provide a complaint resolution process for any issues with the return.
+  expected_output: >
+    A structured complaint resolution process with fields for acknowledgment, resolution steps, and escalation policy.
+  agent: customer_support_agent
+
+
+damage_eval_task:
+  description: >
+    Using the return policy details and the explanation of damage to the item in the customer inquiry, evaluate the exact cost of repair to the item. Here is the original customer inquiry: {customer_inquiry}.
+  expected_output: >
+    An explanation of estimated cost to fix the damage to the item and a decision on whether the cost is LOWER than the threshold cost mentioned in the return policy.
+  agent: customer_support_agent
+
+
+email_task:
+  description: >
+    Using the shipping policy, return policy, and complaint task details, write a formal email response to the user.
+  expected_output: >
+    A well-structured professional email responding to the users original support request.
+  agent: customer_support_agent
+
+
